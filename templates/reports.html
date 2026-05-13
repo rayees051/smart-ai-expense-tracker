@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card shadow-lg border-0 p-4">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h2 class="fw-bold">
+                    Monthly Reports
+                </h2>
+
+                <a href="/dashboard" class="btn btn-dark">
+
+                    Back
+
+                </a>
+
+            </div>
+
+            <div class="mb-5">
+
+                <canvas id="barChart"></canvas>
+
+            </div>
+
+            <div class="row text-center">
+
+                <div class="col-md-4 mb-3">
+
+                    <div class="card shadow border-0 p-3">
+
+                        <h5>Total Months</h5>
+
+                        <h2 class="fw-bold text-primary">
+
+                            {{ monthly_data|length }}
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <div class="card shadow border-0 p-3">
+
+                        <h5>Highest Month</h5>
+
+                        <h2 class="fw-bold text-danger">
+
+                            ₹ {{ monthly_data.values() | max }}
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <div class="card shadow border-0 p-3">
+
+                        <h5>Lowest Month</h5>
+
+                        <h2 class="fw-bold text-success">
+
+                            ₹ {{ monthly_data.values() | min }}
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const bar = document.getElementById('barChart');
+
+new Chart(bar, {
+
+    type: 'bar',
+
+    data: {
+
+        labels: {{ monthly_data.keys() | list | tojson }},
+
+        datasets: [{
+
+            label: 'Monthly Expenses',
+
+            data: {{ monthly_data.values() | list | tojson }},
+
+            borderWidth: 2
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+
+                display: true
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4 fw-bold">
+    Expense Dashboard
+</h2>
+
+<div class="card shadow border-0 p-4 mb-4">
+
+    <h4 class="fw-bold mb-3">
+        Set Income & Budget
+    </h4>
+
+    <form action="/update_finance" method="POST">
+
+        <div class="row">
+
+            <div class="col-md-5 mb-3">
+
+                <input
+                    type="number"
+                    step="0.01"
+                    name="income"
+                    class="form-control"
+                    placeholder="Enter Monthly Income"
+                    value="{{ income }}"
+                    required
+                >
+
+            </div>
+
+            <div class="col-md-5 mb-3">
+
+                <input
+                    type="number"
+                    step="0.01"
+                    name="budget"
+                    class="form-control"
+                    placeholder="Enter Monthly Budget"
+                    value="{{ budget_limit }}"
+                    required
+                >
+
+            </div>
+
+            <div class="col-md-2 mb-3">
+
+                <button class="btn btn-dark w-100">
+
+                    Save
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<form action="/search" class="mb-4">
+
+    <div class="row">
+
+        <div class="col-md-10">
+
+            <input
+                type="text"
+                name="query"
+                class="form-control"
+                placeholder="Search expenses..."
+            >
+
+        </div>
+
+        <div class="col-md-2">
+
+            <button class="btn btn-primary w-100">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</form>
+
+{% if warning %}
+
+<div class="alert alert-danger shadow-sm">
+
+    Budget Limit Exceeded!
+
+</div>
+
+{% endif %}
+
+<div class="row mb-4">
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h5>Total Expenses</h5>
+
+            <h2 class="fw-bold text-danger">
+
+                ₹ {{ total }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h5>Monthly Income</h5>
+
+            <h2 class="fw-bold text-primary">
+
+                ₹ {{ income }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h5>Savings</h5>
+
+            <h2 class="fw-bold text-success">
+
+                ₹ {{ savings }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h5>Budget Left</h5>
+
+            <h2 class="fw-bold text-warning">
+
+                ₹ {{ remaining_budget }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-6 mb-3">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h5>Budget Limit</h5>
+
+            <h2 class="fw-bold text-dark">
+
+                ₹ {{ budget_limit }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h5>AI Prediction</h5>
+
+            <h2 class="fw-bold text-info">
+
+                ₹ {{ prediction }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card shadow border-0 p-4 mb-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <h4 class="fw-bold">
+            Expense List
+        </h4>
+
+        <a href="/add" class="btn btn-success">
+
+            Add Expense
+
+        </a>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table table-hover align-middle">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>Title</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Receipt</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for exp in expenses %}
+
+                <tr>
+
+                    <td>{{ exp.title }}</td>
+
+                    <td class="fw-bold text-danger">
+
+                        ₹ {{ exp.amount }}
+
+                    </td>
+
+                    <td>{{ exp.category }}</td>
+
+                    <td>{{ exp.date }}</td>
+
+                    <td>
+
+                        {% if exp.receipt %}
+
+                        <a
+                            href="{{ url_for('static', filename='uploads/' + exp.receipt) }}"
+                            target="_blank"
+                            class="btn btn-sm btn-info"
+                        >
+
+                            View
+
+                        </a>
+
+                        {% else %}
+
+                        No Receipt
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="/edit/{{ exp.id }}"
+                            class="btn btn-warning btn-sm"
+                        >
+
+                            Edit
+
+                        </a>
+
+                        <a
+                            href="/delete/{{ exp.id }}"
+                            class="btn btn-danger btn-sm"
+                        >
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div class="card shadow border-0 p-4">
+
+    <h4 class="fw-bold mb-4">
+        Expense Analytics
+    </h4>
+
+    <canvas id="pieChart"></canvas>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('pieChart');
+
+new Chart(ctx, {
+
+    type: 'pie',
+
+    data: {
+
+        labels: {{ categories.keys() | list | tojson }},
+
+        datasets: [{
+
+            data: {{ categories.values() | list | tojson }}
+
+        }]
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

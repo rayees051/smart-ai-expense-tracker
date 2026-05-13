@@ -1,0 +1,108 @@
+body {
+    background: #f4f7fc;
+    font-family: Arial, sans-serif;
+    transition: 0.3s;
+}
+
+/* DARK MODE */
+
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode .card {
+    background: #1f1f1f;
+    color: white;
+}
+
+.dark-mode .table {
+    color: white;
+}
+
+.dark-mode .navbar {
+    background: #000 !important;
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background: #2b2b2b;
+    color: white;
+    border: 1px solid #444;
+}
+
+.dark-mode .form-control::placeholder {
+    color: #ccc;
+}
+
+.dark-mode .table-dark {
+    background: #333 !important;
+}
+
+/* CARDS */
+
+.card {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* BUTTONS */
+
+.btn {
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+}
+
+/* TABLES */
+
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* NAVBAR */
+
+.navbar {
+    padding: 15px;
+}
+
+/* INPUTS */
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    padding: 12px;
+}
+
+/* CHARTS */
+
+canvas {
+    max-height: 400px;
+}
+
+/* PROFILE IMAGE */
+
+img {
+    border-radius: 50%;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px) {
+
+    .navbar .btn {
+        margin-top: 8px;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+}
