@@ -5,9 +5,8 @@ An AI-powered Expense Tracker web application built using Python Flask that help
 The application provides a clean dashboard with expense analytics, budget alerts, authentication, admin controls, and AI-based expense prediction for smarter financial management.
 
 ## 📌 Features
-
+```
 ✅ User Authentication System
-
 ✅ Expense Management (Add / Edit / Delete Expenses)
 ✅ Income Tracking System
 ✅ Budget Management & Alerts
@@ -19,11 +18,11 @@ The application provides a clean dashboard with expense analytics, budget alerts
 ✅ Responsive UI Design
 ✅ Secure Password Hashing
 ✅ Receipt Upload Support
-
+```
 ## 🧠 AI Module
 
 The application uses Linear Regression from scikit-learn to predict future expenses based on historical spending data.
-
+```
 AI Features
 Expense trend prediction
 Future monthly expense forecasting
@@ -48,8 +47,8 @@ Pandas
 Report Generation
 ReportLab
 CSV Module
-
-
+```
+```
 ## 📂 Project Structure
 smart-ai-expense-tracker/
 │
@@ -77,7 +76,7 @@ smart-ai-expense-tracker/
 ├── exports/
 ├── screenshots/
 └── instance/
-
+```
 ## ⚙️ Installation & Setup
 1️⃣ Clone the Repository
     git clone https://github.com/rayees051/smart-AI-expense-tracker.git
