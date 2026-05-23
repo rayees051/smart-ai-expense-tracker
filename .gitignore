@@ -1,0 +1,7 @@
+instance/
+exports/
+static/uploads/
+__pycache__/
+*.pyc
+.env
+.vscode/
