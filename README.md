@@ -110,7 +110,7 @@ http://127.0.0.1:5000
 ##  📊 Dashboard Functionalities
 
 The dashboard provides:
-
+```
 Total Income
 Total Expenses
 Savings Calculation
@@ -118,12 +118,12 @@ Budget Remaining
 AI Prediction Results
 Expense Analytics Charts
 Recent Transactions
-
+```
 
 ## 📈 Analytics & Reports
 
 The system provides interactive visual analytics using Chart.js:
-
+```
 Expense Trend Charts
 Category-wise Spending Analysis
 Income vs Expense Comparison
@@ -131,27 +131,32 @@ Budget Utilization Charts
 Export Options
 CSV Export
 PDF Report Generation
+```
 
 ## 🔐 Security Features
+```
 Secure User Authentication
 Password Hashing using Werkzeug/Bcrypt
 Session Management
 Admin Access Control
 Protected Routes
+```
 
 
 ## 👨‍💼 Admin Panel
 
 Admin users can:
-
+```
 View Registered Users
 Monitor Expenses
 Activate/Deactivate Accounts
 Manage User Data
-📷 Screenshots
+```
+
+## 📷 Screenshots
 Login Page
 
-
+![login page](./screenshorts/login.png)
 
 ##  Dashboard
 
@@ -167,7 +172,7 @@ Login Page
 ![report](./screenshorts/report.png)
 
 ## 🚀 Future Improvements
-
+```
 Banking API Integration
 Email & SMS Notifications
 Advanced AI Prediction Models
@@ -175,12 +180,12 @@ Mobile Application
 Multi-Currency Support
 Dark Mode UI
 Cloud Database Integration
-
+```
 
 ## 📦 Requirements
 
 Example packages used:
-
+```
 Flask
 Flask-Login
 Flask-SQLAlchemy
@@ -189,35 +194,35 @@ numpy
 pandas
 reportlab
 matplotlib
-
+```
 ## 🧪 Algorithms Used
-
+```
 Algorithm	            Purpose
 Linear Regression	    Expense Prediction
 Bcrypt Hashing	        Password Security
 Moving Average	        Trend Analysis
 Binary Search	        Record Retrieval
-
+```
 
 ## 🎯 Project Objectives
-
+```
 Simplify personal finance management
 Provide intelligent expense prediction
 Help users avoid overspending
 Improve financial awareness using analytics
-
+```
 
 ## 💡 Learning Outcomes
 
 This project demonstrates:
-
+````
 Full Stack Web Development
 Database Management
 Machine Learning Integration
 Data Visualization
 Authentication & Security
 Report Generation
-
+````
 ## 👨‍💻 Author
 RAYEES AKBAR
 
