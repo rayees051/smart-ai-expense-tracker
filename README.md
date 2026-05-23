@@ -7,6 +7,7 @@ The application provides a clean dashboard with expense analytics, budget alerts
 ## 📌 Features
 
 ✅ User Authentication System
+
 ✅ Expense Management (Add / Edit / Delete Expenses)
 ✅ Income Tracking System
 ✅ Budget Management & Alerts
